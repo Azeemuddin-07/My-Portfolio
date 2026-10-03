@@ -407,10 +407,10 @@ function App() {
                 const data = await response.json();
 
                 if (data.success) {
-                  alert("Message successfully send ho gaya hai! 🎉");
+                  alert("Message successfully sent.");
                   e.target.reset(); // Form clear ho jayega
                 } else {
-                  alert("Kuch error aayi, please dobara try karein.");
+                  alert("Something went wrong! Please try again.");
                 }
               } catch (error) {
                 alert("Network error!");
