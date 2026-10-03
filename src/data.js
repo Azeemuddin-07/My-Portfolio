@@ -33,6 +33,8 @@ export const projects = [
   {
     title: "HireFlow ATS",
     type: "Full stack application",
+    image:
+      "C:\Users\ajjub\Desktop\Md-Azeemuddin-Portfolio1\public\Screenshot 2026-10-03 120748.png",
     problem:
       "A structured platform for candidates to discover roles and for recruiters to manage the hiring workflow efficiently.",
     features: [
