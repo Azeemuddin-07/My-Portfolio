@@ -14,7 +14,14 @@ export const skills = [
   {
     title: "Backend",
     icon: "</>",
-    items: ["Python", "Django", "Django REST Framework", "FastAPI", "Java"],
+    items: [
+      "Python",
+      "Django",
+      "Django REST Framework",
+      "FastAPI",
+      "Java",
+      "DSA (JAVA)",
+    ],
   },
   {
     title: "Database",
