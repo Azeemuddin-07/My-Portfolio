@@ -385,10 +385,36 @@ function App() {
             </div>
           </div>
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              if (!isPlaceholder(contactDetails.email))
-                window.location.href = `mailto:${contactDetails.email}?subject=${encodeURIComponent("Portfolio enquiry from " + e.currentTarget.name.value)}&body=${encodeURIComponent(e.currentTarget.message.value)}`;
+
+              const formData = new FormData(e.target);
+
+              // YAHAN AAPKA ACCESS KEY HAI
+              formData.append(
+                "access_key",
+                "87b6406d-efcd-4f4a-95a4-f0c83db85285",
+              );
+
+              try {
+                const response = await fetch(
+                  "https://api.web3forms.com/submit",
+                  {
+                    method: "POST",
+                    body: formData,
+                  },
+                );
+                const data = await response.json();
+
+                if (data.success) {
+                  alert("Message successfully send ho gaya hai! 🎉");
+                  e.target.reset(); // Form clear ho jayega
+                } else {
+                  alert("Kuch error aayi, please dobara try karein.");
+                }
+              } catch (error) {
+                alert("Network error!");
+              }
             }}
           >
             <label>
@@ -413,15 +439,11 @@ function App() {
                 rows="4"
               />
             </label>
-            <button
-              className="button primary"
-              type="submit"
-              disabled={isPlaceholder(contactDetails.email)}
-            >
+            <button className="button primary" type="submit">
               Send message <Arrow />
             </button>
             <p className="form-note">
-              Your email client will open with this message ready to send.
+              I will respond to your email as soon as possible.
             </p>
           </form>
         </section>
