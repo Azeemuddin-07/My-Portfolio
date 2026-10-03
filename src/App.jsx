@@ -242,11 +242,24 @@ function App() {
               <article className="project-card" key={project.title}>
                 <div className={`project-preview preview-${i + 1}`}>
                   <span>{project.type}</span>
-                  <div className="abstract-ui">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                  </div>
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        borderRadius: "12px",
+                      }}
+                    />
+                  ) : (
+                    <div className="abstract-ui">
+                      <i></i>
+                      <i></i>
+                      <i></i>
+                    </div>
+                  )}
                 </div>
                 <div className="project-content">
                   <p className="project-index">0{i + 1} — CASE STUDY</p>
